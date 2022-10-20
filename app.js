@@ -1,22 +1,15 @@
-function re(n1, n2) {
-  return n1 + n2;
+//Unknown Type
+var userInput;
+//any보다 제한적임
+var userName;
+userInput = 5;
+userInput = "Max";
+if (typeof userInput === "string") {
+    userName = userInput;
 }
-//함수가 아무것도 반환하지 않는다면 void를 표준으로 사용
-function printRe(num) {
-  console.log("Result: " + num);
-  //Result 17
+//Never Type
+function generateError(message, code) {
+    throw { messgage: message, errorCode: code };
 }
-console.log(printRe(re(5, 12)));
-//undefined
-//함수 타입은 어떤 유형의 함수를 사용하려는 것인지 구체적으로 설명할 수 있음
-var combineValue;
-combineValue = re;
-// combineValue = printRe;
-console.log(combineValue(8, 8));
-function addAndHandle(n1, n2, cb) {
-  var result = n1 + n2;
-  cb(result);
-}
-addAndHandle(10, 20, function (result) {
-  console.log(result);
-});
+var result = generateError("An error occured!", 500);
+console.log(result);
